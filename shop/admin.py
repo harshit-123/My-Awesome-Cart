@@ -10,7 +10,13 @@ class ProductAdmin(admin.ModelAdmin):
 class OrderAdmin(admin.ModelAdmin):
     list_display = ['order_id','name','amount','email', 'zip', 'city', 'state']
 
+class OrderUpdateAdmin(admin.ModelAdmin):
+    list_display = ['order_id','update_desc']
+
+class contactsAdmin(admin.ModelAdmin):
+    list_display = ['name','email','phone']
+
 admin.site.register(Product, ProductAdmin)
-admin.site.register(Contact)
+admin.site.register(Contact, contactsAdmin)
 admin.site.register(Order, OrderAdmin)
-admin.site.register(OrderUpdate)
+admin.site.register(OrderUpdate,OrderUpdateAdmin)
