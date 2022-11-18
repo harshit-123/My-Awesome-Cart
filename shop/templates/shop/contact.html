@@ -1,0 +1,71 @@
+{% extends 'shop/basic.html' %} {% block title %}Contact Us Page{% endblock %}
+{% block body %}
+{% if msg %}
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Success</strong> Your Query has been submitted successfully. We will get back to you soon.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+{% endif %}
+<div class="container">
+<div class="col-md-8 order-md-1">
+  <h4 class="mb-3 text-center my-4">Contact Us</h4>
+  <form action="/shop/contact/" method="POST">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label for="username">Your Name</label>
+                <div class="input-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="username"
+                    name="name"
+                    placeholder="Username"
+                    required=""
+                  />
+                </div>
+              </div>
+        </div>
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label for="email"
+                  >Your Email</label
+                >
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  name="email"
+                  placeholder="you@example.com"
+                />
+                <div class="invalid-feedback">
+                  Please enter a valid email address for shipping updates.
+                </div>
+              </div>
+        </div>
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label for="email"
+                  >Your Phone Number(With Country Code)</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="phone"
+                  name="phone"
+                  placeholder="Phone"
+                />
+              </div>
+        </div>
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label for="address">Describe what you want to contact for?</label>
+                <textarea name="desc" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              </div>
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+</div>
+</div>
+{% endblock body %}
